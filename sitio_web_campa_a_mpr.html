@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPR · Movimiento Popular de la Ruana | Don Jediondo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rojoRuana: '#8F2028',
+                        maiz: '#E7C982',
+                        verdeCampo: '#244B38',
+                        cremaPapel: '#F6F0E3',
+                    },
+                    fontFamily: {
+                        condensed: ['Bebas Neue', 'cursive'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        artesanal: ['Caveat', 'cursive'],
+                    },
+                    boxShadow: {
+                        'afiche': '6px 6px 0px 0px #244B38',
+                        'afiche-rojo': '6px 6px 0px 0px #8F2028',
+                        'afiche-maiz': '6px 6px 0px 0px #E7C982',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .texture-paper {
+            background-color: #F6F0E3;
+            background-image: radial-gradient(#244B38 0.4px, transparent 0.4px), radial-gradient(#244B38 0.4px, #F6F0E3 0.4px);
+            background-size: 16px 16px;
+            background-position: 0 0, 8px 8px;
+            background-opacity: 0.03;
+        }
+        .stamp-rotate {
+            transform: rotate(-4deg);
+        }
+        .stamp-border {
+            border: 3px dashed #8F2028;
+        }
+    </style>
+</head>
+<body class="bg-cremaPapel text-slate-800 font-sans antialiased selection:bg-maiz selection:text-rojoRuana">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="sticky top-0 z-50 bg-verdeCampo border-b-4 border-maiz text-cremaPapel shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="bg-maiz text-rojoRuana font-condensed text-3xl px-3 py-1 rounded border-2 border-rojoRuana shadow-[2px_2px_0px_0px_#8F2028]">
+                        MPR
+                    </div>
+                    <span class="font-condensed text-xl sm:text-2xl tracking-wider hidden md:inline text-maiz">
+                        Movimiento Popular de la Ruana
+                    </span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden lg:flex items-center gap-6 font-semibold text-sm tracking-wide">
+                    <a href="#inicio" class="hover:text-maiz transition-colors">Inicio</a>
+                    <a href="#candidato" class="hover:text-maiz transition-colors">El Candidato</a>
+                    <a href="#propuestas" class="hover:text-maiz transition-colors">Ideas</a>
+                    <a href="#identidad" class="hover:text-maiz transition-colors">Identidad</a>
+                    <a href="#merch" class="hover:text-maiz transition-colors">Merchandising</a>
+                    <a href="#participa" class="bg-maiz text-verdeCampo font-condensed text-lg px-4 py-1 rounded hover:bg-white transition-all shadow-[3px_3px_0px_0px_#8F2028]">
+                        ¡Participa!
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="lg:hidden">
+                    <button id="btn-menu" class="text-cremaPapel hover:text-maiz focus:outline-none p-2" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="menu-mobile" class="hidden lg:hidden bg-verdeCampo border-t border-maiz/20 px-4 pt-2 pb-6 space-y-3 font-semibold">
+            <a href="#inicio" class="mobile-link block py-2 hover:text-maiz border-b border-white/10">Inicio</a>
+            <a href="#candidato" class="mobile-link block py-2 hover:text-maiz border-b border-white/10">El Candidato</a>
+            <a href="#propuestas" class="mobile-link block py-2 hover:text-maiz border-b border-white/10">Ideas</a>
+            <a href="#identidad" class="mobile-link block py-2 hover:text-maiz border-b border-white/10">Identidad</a>
+            <a href="#merch" class="mobile-link block py-2 hover:text-maiz border-b border-white/10">Merchandising</a>
+            <a href="#participa" class="mobile-link block py-2 text-maiz font-condensed text-xl">¡Participa en la Carreta!</a>
+        </div>
+    </nav>
+
+    <!-- BANNER ACADÉMICO PREVIO -->
+    <div class="bg-rojoRuana text-cremaPapel text-center py-2 px-4 text-xs sm:text-sm font-semibold tracking-wider uppercase border-b-2 border-maiz">
+        <i class="fa-solid fa-graduation-cap mr-2"></i> Ejercicio Académico Ficticio — Sin Representación Política Real
+    </div>
+
+    <!-- 1. INICIO — LA CAMPAÑA (HERO SECTION) -->
+    <section id="inicio" class="relative overflow-hidden py-12 lg:py-20 bg-cremaPapel border-b-4 border-verdeCampo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Texto Principal -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-block bg-maiz text-verdeCampo font-artesanal text-2xl sm:text-3xl px-4 py-1 rounded-full stamp-rotate shadow-md border border-verdeCampo">
+                        ¡Porque reír juntos también es el primer paso para cambiar!
+                    </div>
+
+                    <h1 class="font-condensed text-5xl sm:text-7xl lg:text-8xl text-rojoRuana leading-none uppercase tracking-wide">
+                        ¡Menos carreta, <br>
+                        <span class="text-verdeCampo">más papa criolla!</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-700 font-medium max-w-2xl mx-auto lg:mx-0">
+                        Una propuesta que combina humor, identidad popular y una mirada crítica a la política. Aquí la carreta se deja a un lado y las ideas reales se ponen sobre la mesa.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#propuestas" class="bg-rojoRuana hover:bg-red-900 text-cremaPapel font-condensed text-2xl px-8 py-3 rounded-lg shadow-afiche transition-all transform hover:-translate-y-1 text-center">
+                            Conoce la propuesta
+                        </a>
+                        <a href="#candidato" class="bg-verdeCampo hover:bg-emerald-950 text-maiz font-condensed text-2xl px-8 py-3 rounded-lg shadow-afiche-maiz transition-all transform hover:-translate-y-1 text-center">
+                            Descubre al candidato
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen / Afiche Ilustrativo -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md bg-maiz p-4 rounded-xl border-4 border-verdeCampo shadow-afiche">
+                        <div class="bg-verdeCampo text-cremaPapel p-6 rounded-lg text-center relative overflow-hidden border-2 border-maiz">
+                            <!-- Sello de campaña -->
+                            <div class="absolute -top-3 -right-3 bg-rojoRuana text-maiz font-artesanal text-xl px-4 py-1 stamp-rotate rounded border-2 border-maiz shadow-md">
+                                ★ 100% Popular ★
+                            </div>
+                            
+                            <!-- Avatar / Silueta Candidato -->
+                            <div class="w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-4 bg-rojoRuana rounded-full border-4 border-maiz flex items-center justify-center overflow-hidden shadow-inner">
+                                <i class="fa-solid fa-user-ninja text-7xl sm:text-8xl text-maiz"></i>
+                            </div>
+
+                            <h2 class="font-condensed text-4xl text-maiz tracking-wider">DON JEDIONDO</h2>
+                            <p class="font-artesanal text-2xl text-cremaPapel">Líder del Movimiento Popular de la Ruana</p>
+                            
+                            <div class="mt-4 pt-3 border-t border-maiz/30 font-condensed text-xl text-maiz tracking-widest uppercase">
+                                "A llenar la tripa y barrer la corrupción"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. EL HOMBRE DETRÁS DE TODO (PRESENTACIÓN) -->
+    <section id="candidato" class="py-16 bg-verdeCampo text-cremaPapel relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cremaPapel text-slate-800 rounded-2xl p-6 sm:p-10 border-4 border-maiz shadow-afiche-maiz">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="md:col-span-4 text-center">
+                        <div class="inline-block p-2 bg-rojoRuana rounded-xl border-4 border-verdeCampo shadow-lg">
+                            <div class="bg-maiz p-6 rounded-lg border-2 border-verdeCampo">
+                                <i class="fa-solid fa-hat-cowboy text-8xl text-verdeCampo"></i>
+                                <h3 class="font-condensed text-3xl text-rojoRuana mt-2">DON JEDIONDO</h3>
+                                <span class="bg-verdeCampo text-cremaPapel text-xs font-bold px-3 py-1 rounded-full uppercase">Candidato Ficticio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-8 space-y-4">
+                        <div class="inline-block bg-rojoRuana text-maiz font-condensed text-xl px-3 py-1 rounded">
+                            SECCIÓN 02 — PRESENTACIÓN
+                        </div>
+                        <h2 class="font-condensed text-4xl sm:text-5xl text-verdeCampo uppercase">
+                            Con ustedes, Don Jediondo
+                        </h2>
+                        <p class="text-lg leading-relaxed text-slate-700">
+                            Un personaje reconocido por el humor popular colombiano que, en esta campaña ficticia, cambia el escenario de la comedia por el de la sátira política.
+                        </p>
+                        <p class="text-lg leading-relaxed text-slate-700">
+                            Su papel es invitar a mirar con humor las promesas exageradas, la corrupción y la distancia existente entre los discursos políticos tradicionales y la vida cotidiana de las personas.
+                        </p>
+
+                        <!-- Nota aclaratoria -->
+                        <div class="mt-6 p-4 bg-amber-50 border-l-4 border-rojoRuana rounded-r text-sm text-slate-600">
+                            <strong>Nota importante:</strong> La campaña es un ejercicio académico ficticio; no representa una candidatura real ni implica respaldo político formal del personaje o sus creadores.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. NUESTRAS IDEAS (EJES NARRATIVOS) -->
+    <section id="propuestas" class="py-16 bg-cremaPapel border-b-4 border-verdeCampo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="font-artesanal text-3xl text-rojoRuana">Sin carreta, directo al grano</span>
+                <h2 class="font-condensed text-5xl sm:text-6xl text-verdeCampo uppercase tracking-wide">
+                    Nuestras Ideas de Campaña
+                </h2>
+                <p class="text-slate-600 text-lg">
+                    Estos ejes funcionan como mensajes satíricos para reflexionar, no como un programa de gobierno técnicamente formulado.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Idea 1 -->
+                <div class="bg-white p-6 rounded-xl border-4 border-verdeCampo shadow-afiche hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-rojoRuana text-maiz rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="font-condensed text-3xl text-rojoRuana mb-2">MENOS CARRETA</h3>
+                    <p class="text-slate-700 text-base">
+                        Cuestionar las promesas vacías del discurso político tradicional y pedir explicaciones claras sin rodeos.
+                    </p>
+                </div>
+
+                <!-- Idea 2 -->
+                <div class="bg-white p-6 rounded-xl border-4 border-verdeCampo shadow-afiche hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-maiz text-verdeCampo rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-condensed text-3xl text-verdeCampo mb-2">LA TRIPA LLENA</h3>
+                    <p class="text-slate-700 text-base">
+                        Poner sobre la mesa las necesidades cotidianas y prioritarias de la gente: comida, sustento y bienestar real.
+                    </p>
+                </div>
+
+                <!-- Idea 3 -->
+                <div class="bg-white p-6 rounded-xl border-4 border-verdeCampo shadow-afiche hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-verdeCampo text-cremaPapel rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <h3 class="font-condensed text-3xl text-rojoRuana mb-2">BARRER LA CORRUPCIÓN</h3>
+                    <p class="text-slate-700 text-base">
+                        Defender la transparencia de los recursos y exigir responsabilidad pública estricta con humor mordaz.
+                    </p>
+                </div>
+
+                <!-- Idea 4 -->
+                <div class="bg-white p-6 rounded-xl border-4 border-verdeCampo shadow-afiche hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-rojoRuana text-maiz rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-condensed text-3xl text-verdeCampo mb-2">MÁS EMPATÍA</h3>
+                    <p class="text-slate-700 text-base">
+                        Escuchar a las personas y reconocer sus problemas reales sin convertirlos en simples frases de discurso electores.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. NUESTRA IDENTIDAD (VISUAL Y COLORES) -->
+    <section id="identidad" class="py-16 bg-maiz/20 border-b-4 border-verdeCampo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="bg-rojoRuana text-cremaPapel font-artesanal text-2xl px-4 py-1 rounded stamp-rotate inline-block">
+                        El ADN Visual del MPR
+                    </span>
+                    <h2 class="font-condensed text-5xl text-rojoRuana uppercase leading-none">
+                        Logo, Símbolo y Significado
+                    </h2>
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        El símbolo del MPR retoma elementos fundamentales de la cultura popular colombiana: **la ruana, el paisaje rural y los productos de nuestra tierra**. Su estética estilo afiche busca ser directa, llamativa y fácilmente reconocible en cualquier rincón del país.
+                    </p>
+                    
+                    <!-- Muestrario de Paleta -->
+                    <div class="pt-4">
+                        <h4 class="font-condensed text-2xl text-verdeCampo mb-3 uppercase">Colores Sugeridos de Identidad:</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                            <div class="p-3 bg-rojoRuana text-cremaPapel rounded-lg border-2 border-slate-800 shadow">
+                                <span class="block font-bold text-sm">Rojo Ruana</span>
+                                <span class="text-xs opacity-80">#8F2028</span>
+                            </div>
+                            <div class="p-3 bg-maiz text-slate-900 rounded-lg border-2 border-slate-800 shadow">
+                                <span class="block font-bold text-sm">Dorado Maíz</span>
+                                <span class="text-xs opacity-80">#E7C982</span>
+                            </div>
+                            <div class="p-3 bg-verdeCampo text-cremaPapel rounded-lg border-2 border-slate-800 shadow">
+                                <span class="block font-bold text-sm">Verde Campo</span>
+                                <span class="text-xs opacity-80">#244B38</span>
+                            </div>
+                            <div class="p-3 bg-cremaPapel text-slate-900 rounded-lg border-2 border-slate-800 shadow">
+                                <span class="block font-bold text-sm">Crema Papel</span>
+                                <span class="text-xs opacity-80">#F6F0E3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta con Logo Interactivo / Demostración -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="bg-verdeCampo p-8 rounded-2xl border-4 border-rojoRuana shadow-afiche-rojo w-full max-w-md text-center text-cremaPapel">
+                        <div class="border-2 border-maiz p-6 rounded-xl bg-verdeCampo/80">
+                            <!-- Isotipo -->
+                            <div class="inline-block bg-maiz text-rojoRuana font-condensed text-6xl px-6 py-2 rounded-lg border-4 border-rojoRuana shadow-lg mb-4">
+                                MPR
+                            </div>
+                            <h3 class="font-condensed text-3xl text-maiz tracking-widest">MOVIMIENTO POPULAR DE LA RUANA</h3>
+                            <p class="font-artesanal text-2xl text-cremaPapel mt-2">"Símbolo de Tradición y Transparencia"</p>
+                            
+                            <div class="mt-6 pt-4 border-t border-maiz/30 flex justify-around text-xs uppercase text-maiz font-semibold">
+                                <span><i class="fa-solid fa-check mr-1"></i> Tradición</span>
+                                <span><i class="fa-solid fa-check mr-1"></i> Campo</span>
+                                <span><i class="fa-solid fa-check mr-1"></i> Humor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LLEVA LA RUANA CONTIGO (MERCHANDISING) -->
+    <section id="merch" class="py-16 bg-cremaPapel border-b-4 border-verdeCampo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-maiz text-verdeCampo font-artesanal text-2xl px-3 py-1 rounded stamp-rotate inline-block mb-2">
+                    Productos de Campaña
+                </span>
+                <h2 class="font-condensed text-5xl sm:text-6xl text-verdeCampo uppercase">
+                    Lleva la ruana contigo
+                </h2>
+                <p class="text-slate-700 text-lg">
+                    Llevamos el humor y el cambio a donde vayamos. Cada objeto conserva los colores, la tipografía y el lenguaje visual del MPR.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Merch 1 -->
+                <div class="bg-white rounded-xl border-4 border-verdeCampo shadow-afiche overflow-hidden text-center group">
+                    <div class="bg-maiz/40 p-8 border-b-2 border-verdeCampo flex justify-center items-center h-48 group-hover:bg-maiz transition-colors">
+                        <i class="fa-solid fa-shirt text-7xl text-rojoRuana"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-condensed text-2xl text-verdeCampo">Camiseta Oficial MPR</h3>
+                        <p class="text-xs text-slate-600 mt-1">100% Algodón con estampa "Menos Carreta"</p>
+                    </div>
+                </div>
+
+                <!-- Merch 2 -->
+                <div class="bg-white rounded-xl border-4 border-verdeCampo shadow-afiche overflow-hidden text-center group">
+                    <div class="bg-maiz/40 p-8 border-b-2 border-verdeCampo flex justify-center items-center h-48 group-hover:bg-maiz transition-colors">
+                        <i class="fa-solid fa-hat-cowboy-side text-7xl text-verdeCampo"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-condensed text-2xl text-verdeCampo">Gorra Popular</h3>
+                        <p class="text-xs text-slate-600 mt-1">Con bordado frontal del logo MPR</p>
+                    </div>
+                </div>
+
+                <!-- Merch 3 -->
+                <div class="bg-white rounded-xl border-4 border-verdeCampo shadow-afiche overflow-hidden text-center group">
+                    <div class="bg-maiz/40 p-8 border-b-2 border-verdeCampo flex justify-center items-center h-48 group-hover:bg-maiz transition-colors">
+                        <i class="fa-solid fa-note-sticky text-7xl text-rojoRuana"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-condensed text-2xl text-verdeCampo">Calcomanías y Stickers</h3>
+                        <p class="text-xs text-slate-600 mt-1">Set de frases satíricas para tu vehículo</p>
+                    </div>
+                </div>
+
+                <!-- Merch 4 -->
+                <div class="bg-white rounded-xl border-4 border-verdeCampo shadow-afiche overflow-hidden text-center group">
+                    <div class="bg-maiz/40 p-8 border-b-2 border-verdeCampo flex justify-center items-center h-48 group-hover:bg-maiz transition-colors">
+                        <i class="fa-solid fa-whiskey-glass text-7xl text-verdeCampo"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-condensed text-2xl text-verdeCampo">Tote Bag & Termo</h3>
+                        <p class="text-xs text-slate-600 mt-1">Para llevar la papita criolla al trabajo</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PARTICIPA EN LA CARRETA (INTERACTIVO) -->
+    <section id="participa" class="py-16 bg-verdeCampo text-cremaPapel relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cremaPapel text-slate-800 p-6 sm:p-10 rounded-2xl border-4 border-maiz shadow-afiche-maiz">
+                
+                <div class="text-center mb-8">
+                    <span class="bg-rojoRuana text-maiz font-artesanal text-2xl px-4 py-1 rounded stamp-rotate inline-block mb-2">
+                        Sección Participativa
+                    </span>
+                    <h2 class="font-condensed text-5xl text-verdeCampo uppercase">
+                        Participa en la carreta
+                    </h2>
+                    <p class="text-slate-600 text-lg">
+                        Convierte el humor en participación. Deja tu opinión o genera tu propia frase satírica de campaña.
+                    </p>
+                </div>
+
+                <!-- Generador de Frases Satíricas Interactivo -->
+                <div class="mb-10 bg-maiz/30 p-6 rounded-xl border-2 border-verdeCampo text-center">
+                    <h3 class="font-condensed text-2xl text-rojoRuana mb-2">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Generador de Eslóganes Populares
+                    </h3>
+                    <p class="text-sm text-slate-700 mb-4">Haz clic para armar la propuesta del día:</p>
+                    
+                    <div id="frase-box" class="bg-white p-4 rounded-lg border-2 border-verdeCampo font-artesanal text-2xl text-verdeCampo min-h-[70px] flex items-center justify-center shadow-inner">
+                        ¡Menos carreta y más papa criolla para la gente!
+                    </div>
+
+                    <button id="btn-generar" class="mt-4 bg-rojoRuana hover:bg-red-900 text-cremaPapel font-condensed text-xl px-6 py-2 rounded-lg shadow-md transition-all">
+                        Generar nueva frase
+                    </button>
+                </div>
+
+                <!-- Formulario de Participación -->
+                <form id="form-opinion" onsubmit="event.preventDefault(); alert('¡Gracias por tu participación en este ejercicio académico!');" class="space-y-4">
+                    <div>
+                        <label class="block font-condensed text-2xl text-verdeCampo mb-1">
+                            ¿Qué necesita menos carreta y más soluciones en tu comunidad?
+                        </label>
+                        <textarea rows="3" required placeholder="Escribe aquí qué promesa política te parece la más exagerada..." class="w-full p-3 rounded-lg border-2 border-verdeCampo focus:outline-none focus:ring-2 focus:ring-rojoRuana text-slate-800 font-sans"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Nombre o Apodo</label>
+                            <input type="text" required placeholder="Ej: Vecino de la vereda" class="w-full p-3 rounded-lg border-2 border-verdeCampo focus:outline-none focus:ring-2 focus:ring-rojoRuana">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Municipio / Ciudad</label>
+                            <input type="text" required placeholder="Ej: Tunja, Boyacá" class="w-full p-3 rounded-lg border-2 border-verdeCampo focus:outline-none focus:ring-2 focus:ring-rojoRuana">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-verdeCampo hover:bg-emerald-950 text-maiz font-condensed text-2xl py-3 rounded-lg shadow-afiche transition-all">
+                        Dejar mi opinión
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CIERRE — HUMOR Y EMPATÍA -->
+    <footer class="bg-rojoRuana text-cremaPapel py-12 border-t-4 border-maiz">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+            
+            <div class="inline-block bg-maiz text-rojoRuana font-artesanal text-3xl px-6 py-2 rounded-full stamp-rotate shadow-lg border-2 border-rojoRuana">
+                Mucho humor y mucha más empatía
+            </div>
+
+            <h2 class="font-condensed text-4xl sm:text-6xl text-maiz tracking-wider uppercase">
+                MPR · Movimiento Popular de la Ruana
+            </h2>
+
+            <p class="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed text-cremaPapel/90">
+                Porque la sátira no consiste únicamente en reírse de la política, sino también en observar lo que ocurre a nuestro alrededor, cuestionar los discursos y recordar que detrás de cada problema hay personas reales.
+            </p>
+
+            <div class="pt-6 border-t border-cremaPapel/20 text-xs sm:text-sm text-cremaPapel/70 space-y-2">
+                <p>© 2026 MPR - Movimiento Popular de la Ruana. Proyecto académico y pedagógico sin fines políticos reales.</p>
+                <p>Diseñado con colores: Rojo Ruana (#8F2028), Maíz (#E7C982), Verde Campo (#244B38) y Crema Papel (#F6F0E3).</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        // Menú Móvil Toggle
+        const btnMenu = document.getElementById('btn-menu');
+        const menuMobile = document.getElementById('menu-mobile');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btnMenu.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuMobile.classList.add('hidden');
+            });
+        });
+
+        // Generador de Frases Satíricas
+        const frases = [
+            "¡Menos carreta y más papa criolla para la gente!",
+            "¡A llenar la tripa y barrer la corrupción!",
+            "Promesa que no alimenta, el MPR la descarta.",
+            "¡Más sancocho comunitario y menos discursos de escritorio!",
+            "Si la política empalaga, pongámosle ají popular.",
+            "¡Ruana puesta, cuentas claras y la cara en alto!"
+        ];
+
+        const btnGenerar = document.getElementById('btn-generar');
+        const fraseBox = document.getElementById('frase-box');
+
+        btnGenerar.addEventListener('click', () => {
+            const aleatorio = Math.floor(Math.random() * frases.length);
+            fraseBox.textContent = frases[aleatorio];
+        });
+    </script>
+</body>
+</html>
